@@ -1,35 +1,24 @@
 import budget
-from budget import create_spend_chart
+# from budget import create_spend_chart
 from unittest import main
 
+food = budget.Category("Food")
+food.deposit(1000, "initial deposit")
+food.withdraw(10.15, "groceries")
+food.withdraw(15.89, "restaurant and more food for dessert")
+print(food.get_balance())
+clothing = budget.Category("Clothing")
+food.transfer(50, clothing)
+clothing.withdraw(25.55)
+clothing.withdraw(100)
+auto = budget.Category("Auto")
+auto.deposit(1000, "initial deposit")
+auto.withdraw(15)
 
-class Category:
-    x=0
-    categoryName=""
-    def __init__(self, categoryName):
-        self.categoryName=categoryName
-    def newFunc(self):
-        self.x=23
-        print(self.x)
-    print(x)
+print(food)
+print(clothing)
 
-class LedgerClass:
-    amount=0
-    description=""
-    def __init__(self, amount, description="okthen"):
-        self.amount=amount
-        self.description=description
-        print(self.amount)
-        print(self.description)
+# print(create_spend_chart([food, clothing, auto]))
 
-    def viewer(self):
-        print(self.amount)
-        print(self.description)
-    
-
-some = Category("huh")
-ledgerCheck = LedgerClass(123)
-ledgerCheck.viewer()
-# some.newFunc()
-# print(some.x)
-# print(some.categoryName)
+# Run unit tests automatically
+main(module='test_module', exit=False)
